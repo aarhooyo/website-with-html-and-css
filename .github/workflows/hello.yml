@@ -1,0 +1,13 @@
+name : my first workfolw
+on: push
+jobs:
+    say-hello:
+        runs-on:ubuntu-latest
+        steps:
+            -name: get the codde
+            uses:  actions/checkout@v2
+
+            -name: great @ count files
+            env:
+                STUDENT_NAME : ${{vars.STUDENT_NAME }}
+                run:echo "hello , $STUDENT_NAME }}!"
