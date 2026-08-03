@@ -7,10 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get the code
+      - name: Get The Code
         uses: actions/checkout@v4
 
-      - name: Greet and count files
+      - name: Greet & Count The Files
         env:
           STUDENT_NAME: ${{ vars.STUDENT_NAME }}
-        run: echo "Hello, $STUDENT_NAME"
+        run: |
+          COUNT=$(find . -type f -not -path './.git/*' | wc -l)
+          echo "Hello ${STUDENT_NAME}, you have $COUNT files in your repository"
